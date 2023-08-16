@@ -1,0 +1,89 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+-- Defining Ui Library
+local Window = Rayfield:CreateWindow({
+    Name = "Boxing Battles🥊 -PRIME TIME", -- Game Name
+    LoadingTitle = "PRIME TIME",
+    LoadingSubtitle = "Created By: Prime Time",
+    ConfigurationSaving = {
+       Enabled = false,
+       FolderName = nil,
+       FileName = "PrimeTime"
+    },
+    Discord = {
+       Enabled = true,
+       Invite = "https://discord.gg/CSEr4x8Zvy",
+       RememberJoins = true
+    },
+    KeySystem = false,
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided",
+       FileName = "Key", 
+       SaveKey = true,
+       GrabKeyFromSite = false,
+       Key = {"Hello"} 
+    }
+ })
+--------------------------------------------------------------------
+ local MainTab = Window:CreateTab("Home🏠", nil) 
+ local MainSection = MainTab:CreateSection("Main")
+--------------------------------------------------------------------
+--Notification
+ Rayfield:Notify({
+    Title = "PRIME TIME",
+    Content = "Want more UGC Limited Scripts? Join my discord i share them free there. https://discord.gg/CSEr4x8Zvy",
+    Duration = 5,
+    Image = nil,
+    Actions = { 
+       Ignore = {
+          Name = "Close",
+          Callback = function()
+          print("The user tapped Okay!")
+       end
+    },
+ },
+ })
+----------------------------------------------------------------------------------------------------------------
+-- Script Start!                           -Script By PRIME TIME                                              --
+----------------------------------------------------------------------------------------------------------------
+ local isRunning = false
+ --------------------------------------------------
+ --                 Toggles                      --
+ --------------------------------------------------
+ local Toggle = MainTab:CreateToggle({
+    Name = "Hit Farm",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(Value)
+        isRunning = Value
+
+        if isRunning then
+            while isRunning do
+                local args = {
+                    [1] = game:GetService("Players"):WaitForChild("dryaustintoast").Character.Humanoid}
+                game:GetService("ReplicatedStorage"):WaitForChild("KnitPackages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("CombatService"):WaitForChild("RF"):WaitForChild("PunchHumanoid"):InvokeServer(unpack(args))                
+                wait()
+            end
+        end
+    end,
+})
+
+local Toggle = MainTab:CreateToggle({
+    Name = "Tp Loop",
+    CurrentValue = false,
+    Flag = "Toggle3",
+    Callback = function(Value)
+        isRunning = Value 
+
+        if isRunning then
+            while isRunning do
+                local player = game.Players.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+            local targetCFrame = CFrame.new(-78.4000015, 6.94999981, -33.5999985, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            character:SetPrimaryPartCFrame(targetCFrame)
+                wait()
+            end
+        end
+    end,
+})
